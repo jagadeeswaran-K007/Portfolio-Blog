@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { auth } from '../firebaseConfig';
 import { onAuthStateChanged } from 'firebase/auth';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_BASE_URL = process.env.REACT_APP_API_URL ; // || 'http://localhost:5000'
 
 const BlogPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -38,7 +38,7 @@ const BlogPage = () => {
       const data = await res.json();
       setBlogs(data);
     } catch (err) {
-      console.error('Error fetching blogs:', err);
+      console.log('Error fetching blogs:', err);
     }
   };
 
@@ -59,7 +59,7 @@ const BlogPage = () => {
       setIsCreateOpen(false);
       fetchBlogs();
     } catch (err) {
-      console.error('Error creating blog:', err);
+      console.log('Error creating blog:', err);
     }
   };
 
@@ -82,7 +82,7 @@ const BlogPage = () => {
       fetchBlogs();
       if (selectedPost) setSelectedPost(null);
     } catch (err) {
-      console.error('Error updating blog:', err);
+      console.log('Error updating blog:', err);
     }
   };
 
@@ -103,7 +103,7 @@ const BlogPage = () => {
         setSelectedPost(null);
         fetchBlogs();
       } catch (err) {
-        console.error('Error deleting blog:', err);
+        console.log('Error deleting blog:', err);
       }
     }
   };
@@ -118,7 +118,7 @@ const BlogPage = () => {
         setSelectedPost(updatedBlog);
       }
     } catch (err) {
-      console.error('Error liking blog:', err);
+      console.log('Error liking blog:', err);
     }
   };
 
