@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { auth } from '../firebaseConfig';
 import { onAuthStateChanged } from 'firebase/auth';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL ; // || 'http://localhost:5000'
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000' ; //'http://localhost:5000'
 
 const BlogPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -14,7 +14,7 @@ const BlogPage = () => {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [selectedPost, setSelectedPost] = useState(null); // For Read Full Post modal
 
-  // Form states
+  // Form states  
   const [title, setTitle] = useState('');
   const [tags, setTags] = useState('');
   const [content, setContent] = useState('');
